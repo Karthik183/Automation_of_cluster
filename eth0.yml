@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: root
+
+  tasks:
+  - name: creating 
+    blockinfile: 
+      dest:  /home/karthik/Desktop/karthik.txt/ifcfg-eth0
+      block: |
+       DEVICE=eth0
+       HWADDR=<<Hardware Address of eth0 interface>>
+       TYPE=Ethernet
+       ONBOOT=yes
+       NM_CONTROLLED=no
+       BOOTPROTO=none
+       BRIDGE=br0
+
