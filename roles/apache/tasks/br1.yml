@@ -1,0 +1,15 @@
+ 
+---
+- hosts: all
+  remote_user: root
+
+  tasks:
+  - name: creating br1 for connecting to private network
+    blockinfile: 
+      dest: /etc/sysconfig/network-scripts/ifcfg-br1
+      block: |
+       DEVICE=br1
+       TYPE=Bridge
+       ONBOOT=yes
+       NM_CONTROLLED=no
+       BOOTPROTO=none

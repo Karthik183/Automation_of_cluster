@@ -1,0 +1,20 @@
+---
+- hosts: all
+  remote_user: root
+
+  tasks:
+  - name: creating br0
+    blockinfile: 
+      dest:  /etc/sysconfig/network-scripts/ifcfg-br0
+      block: |
+       DEVICE=br0
+       BOOTPROTO=static
+       ONBOOT=yes
+       TYPE=Bridge
+       NM_CONTROLLED=no
+       IPADDR=<ip>
+       NETMASK=255.255.252.0
+       GATEWAY=<ip>
+       DNS1=<ip>
+       DNS2=<ip>
+
